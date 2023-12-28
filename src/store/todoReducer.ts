@@ -1,6 +1,11 @@
 import { Todo, TodoAction, TodoActionTypes } from "../types/TodoTypes";
 
-const todoReducer = (state: Todo[], action: TodoAction): Todo[] => {
+export const initialTodos: Todo[] = [
+  { id: 1703767143287, text: "Learn React", completed: false },
+  { id: 1703767168695, text: "Build a ToDo app", completed: true },
+];
+
+export const todoReducer = (state: Todo[], action: TodoAction): Todo[] => {
   switch (action.type) {
     case TodoActionTypes.ADD_TODO:
       return [
@@ -19,5 +24,3 @@ const todoReducer = (state: Todo[], action: TodoAction): Todo[] => {
       return state;
   }
 };
-
-export default todoReducer;

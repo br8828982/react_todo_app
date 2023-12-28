@@ -1,11 +1,6 @@
-import React, {
-  createContext,
-  useReducer,
-  ReactNode,
-  useEffect
-} from "react";
+import React, { createContext, useReducer, ReactNode, useEffect } from "react";
 import { Todo, TodoAction } from "../types/TodoTypes";
-import todoReducer from "../store/todoReducer";
+import { initialTodos, todoReducer } from "../store/todoReducer";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 export interface TodoContextProps {
@@ -13,7 +8,9 @@ export interface TodoContextProps {
   dispatch: React.Dispatch<TodoAction>;
 }
 
-export const TodoContext = createContext<TodoContextProps | undefined>(undefined);
+export const TodoContext = createContext<TodoContextProps | undefined>(
+  undefined
+);
 
 interface TodoProviderProps {
   children: ReactNode;
@@ -37,8 +34,3 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
     </TodoContext.Provider>
   );
 };
-
-const initialTodos: Todo[] = [
-  { id: 1703767143287, text: "Learn React", completed: false },
-  { id: 1703767168695, text: "Build a ToDo app", completed: true },
-];
