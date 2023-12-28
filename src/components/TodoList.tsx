@@ -1,4 +1,4 @@
-import { useTodo } from "../contexts/TodoContext";
+import { useTodo } from "../hooks/useTodo";
 import { TodoActionTypes, Todo } from "../types/TodoTypes";
 
 const TodoList = () => {
